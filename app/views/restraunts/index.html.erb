@@ -1,0 +1,29 @@
+<nav>
+  <li class="logo-small"><a href="/">flavr.</a></li>
+  <li>
+    <%= form_tag(restraunts_path, method: :get, :class => "search-nav") do %>
+      <%= select_tag(:qa, options_for_select(Area.select(:city).map(&:city).uniq + Area.all.map{|area| [area.area+', '+area.city, area.area]}), :class => "search-nav-loc") %>
+      <%= text_field_tag :q, params[:q], placeholder: "Search for fine dining anywhere...",:class => "search-nav-bar" %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+  </li>
+</nav>
+<% @restraunts.each do |restraunt| %>
+  <div class="restraunt">
+    <div class="rest-img">
+      <%= image_tag restraunt.image_url %>
+      <h3 class="rest-name"> <%= restraunt.title %> </h3>
+      <h4 class="rest-type"> <%= restraunt.cuisine.cname %></h4>
+      <h4 class="rest-rating"> 0.0 </h4>
+    </div>
+    <div class="rest-content">
+      <div>
+        <p><span class="rest-d">Cuisine:</span><%= restraunt.cuisine.cname %></p>
+        <p><span class="rest-d">For <%= restraunt.heads %> people:</span>&#8377;<%= restraunt.cost %></p>
+      </div>
+
+      <%= link_to 'View Restraunt', restraunt_path(restraunt), :class=>"button" %>
+      <a href="tel:<%= restraunt.phone %>" class="button btn-white">Phone Up</a>
+    </div>
+  </div>
+<% end %>

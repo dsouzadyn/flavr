@@ -1,0 +1,10 @@
+<h1>Add a new cuisine</h1>
+<%= form_for :cuisine, url: cuisines_path do |f| %>
+  <p>
+    <%= f.label :cname %>
+    <%= f.text_field :cname %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

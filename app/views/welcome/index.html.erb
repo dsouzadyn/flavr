@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="black-drop">
+    <h1 class="logo">flavr.</h1>
+    <h3 class="tagline">Curated fine dining restraunts.</h3>
+    <div>
+      <%= form_tag(restraunts_path, method: :get, :class => "search-form") do %>
+        <%= select_tag(:qa, options_for_select(Area.select(:city).map(&:city).uniq + Area.all.map{|area| [area.area+', '+area.city, area.area]}), :class => "search-loc") %>
+        <%= text_field_tag :q, params[:q], placeholder: "Search for fine dining anywhere...",:class => "search-bar" %>
+        <%= submit_tag 'Search', name: nil %>
+      <% end %>
+    </div>
+  </div>
+</div>

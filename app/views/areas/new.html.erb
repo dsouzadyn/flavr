@@ -1,0 +1,14 @@
+<h1>Add an area</h1>
+<%= form_for :area, url: areas_path do |f| %>
+<p>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+</p>
+<p>
+  <%= f.label :area %>
+  <%= f.text_field :area %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %> 

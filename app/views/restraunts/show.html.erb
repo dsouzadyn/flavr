@@ -1,0 +1,41 @@
+<nav>
+  <li class="logo-small"><a href="/">flavr.</a></li>
+  <li>
+    <%= form_tag(restraunts_path, method: :get, :class => "search-nav") do %>
+      <%= select_tag(:qa, options_for_select(Area.select(:city).map(&:city).uniq + Area.all.map{|area| [area.area+', '+area.city, area.area]}), :class => "search-nav-loc") %>
+      <%= text_field_tag :q, params[:q], placeholder: "Search for fine dining anywhere...",:class => "search-nav-bar" %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+  </li>
+</nav>
+<div class="ind-rest-container">
+  <%= image_tag @restraunt.image_url %>
+
+    <h1><%= @restraunt.title %></h1>
+    <hr/>
+  <section class="ind-rest-info">
+    <div class="col">
+      <p>
+        <h2>Phone</h2>
+        <%= @restraunt.phone %>
+      </p>
+      <p>
+        <h2>Cuisine</h2>
+        <%= @restraunt.cuisine.cname %>
+      </p>
+
+    </div>
+    <div class="col">
+      <p>
+        <h2>Address</h2>
+        <%= @restraunt.address %>
+      </p>
+      <p>
+        <h2>Cost</h2>
+        &#8377;<%= @restraunt.cost %> for <%= @restraunt.heads %> people.
+      </p>
+    </div>
+  </section>
+
+
+</div>
