@@ -1,0 +1,17 @@
+<nav>
+  <li class="logo-small"><a href="/">flavr.</a></li>
+  <li>
+    <%= form_tag(restraunts_path, method: :get, :class => "search-nav") do %>
+      <%= select_tag(:qa, options_for_select(Area.select(:city).map(&:city).uniq + Area.all.map{|area| [area.area+', '+area.city, area.area]}), :class => "search-nav-loc") %>
+      <%= text_field_tag :q, params[:q], placeholder: "Search for fine dining anywhere...",:class => "search-nav-bar" %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+  </li>
+  <li>
+    <% if logged_in? %>
+      <%= link_to "Sign Out", logout_path %>
+    <% else %>
+      <%= link_to "Login", login_path %>
+    <% end %>
+  </li>
+</nav>

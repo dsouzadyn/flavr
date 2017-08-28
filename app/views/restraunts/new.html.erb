@@ -1,6 +1,4 @@
-<% if logged_in? %>
-  <%= link_to 'Logout', logout_path %>
-<% end %>
+<%= render 'layouts/navalt' %>
 <h1>Add a new restraunt</h1>
 <%= form_for :restraunt, url: restraunts_path do |f| %>
 <p>

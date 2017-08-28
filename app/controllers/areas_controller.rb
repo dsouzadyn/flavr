@@ -1,4 +1,6 @@
 class AreasController < ApplicationController
+  before_action :authenticate, except: [:show, :index]
+
   def show
     @area = Area.find(params[:id])
   end

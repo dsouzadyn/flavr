@@ -1,4 +1,6 @@
 class RestrauntsController < ApplicationController
+  before_action :authenticate, except: [:show, :index]
+
   def index
     @restraunts = Restraunt.search(params[:q], params[:qa])
   end

@@ -1,4 +1,6 @@
 class CuisinesController < ApplicationController
+  before_action :authenticate, except: [:show, :index]
+
   def show
     @cuisine = Cuisine.find(params[:id])
   end

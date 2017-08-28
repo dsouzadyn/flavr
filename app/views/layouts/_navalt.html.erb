@@ -1,0 +1,10 @@
+<nav>
+  <li class="logo-small"><a href="/">flavr.</a></li>
+  <li>
+    <% if logged_in? %>
+      <%= link_to "Sign Out", logout_path %>
+    <% else %>
+      <%= link_to "Login", login_path %>
+    <% end %>
+  </li>
+</nav>

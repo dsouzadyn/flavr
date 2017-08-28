@@ -1,40 +1,7 @@
 // Place all the styles related to the Restraunts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #000;
-  padding: 5px 32px;
-  height: 64px;
-  line-height: 64px;
-  color: #fff;
-  li {
-    list-style-type: none;
-  }
-}
 
-.logo-small {
-  font-size: 32px;
-}
-
-.search-nav-bar {
-  padding: 0 15px;
-  border: none;
-  height: 36px;
-  width: 475px;
-}
-.search-nav-loc {
-  padding: 0 15px;
-  font-size: 18px;
-  border: none;
-  height: 36px;
-  background: #fff;
-  font-family: inherit;
-  option {
-    height: inherit;
-  }
-}
 
 .restraunt {
   border: 1px solid lighten(#89959B, 30);
