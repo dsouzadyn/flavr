@@ -4,7 +4,7 @@ class Restraunt < ApplicationRecord
 
   def self.search(q, qa)
     if q
-      where('title LIKE ? AND address LIKE ?', "%#{q}%", "%#{qa}%")
+      where('lower(title) LIKE ? AND lower(address) LIKE ?', "%#{q.downcase}%", "%#{qa.downcase}%")
     else
       all
     end

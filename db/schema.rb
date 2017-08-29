@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170829070658) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "areas", force: :cascade do |t|
     t.string "city"
     t.string "area"
@@ -20,9 +23,9 @@ ActiveRecord::Schema.define(version: 20170829070658) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.text "body"
-    t.integer "restraunt_id"
+    t.bigint "restraunt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restraunt_id"], name: "index_comments_on_restraunt_id"
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170829070658) do
     t.decimal "cost"
     t.integer "heads"
     t.string "image_url"
-    t.integer "cuisine_id"
+    t.bigint "cuisine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cuisine_id"], name: "index_restraunts_on_cuisine_id"
@@ -58,4 +61,7 @@ ActiveRecord::Schema.define(version: 20170829070658) do
     t.boolean "curator"
   end
 
+  add_foreign_key "comments", "restraunts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "restraunts", "cuisines"
 end
