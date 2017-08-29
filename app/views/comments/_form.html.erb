@@ -1,0 +1,16 @@
+<div class="comments">
+  <%= render @restraunt.comments %>
+  <% if logged_in? %>
+    <%= form_for([@restraunt, @restraunt.comments.build]) do |f| %>
+      <p>
+        <%= f.label :body %>
+        <%= f.text_area :body, :required => true%>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  <% else %>
+    Sign in to comment
+  <% end %>
+</div>

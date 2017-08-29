@@ -27,12 +27,5 @@
       </p>
     </div>
   </section>
-  <div class="comments">
-    <% if logged_in? %>
-      Comment
-    <% else %>
-      Sign in to comment
-    <% end %>
-  </div>
-
+  <%= render 'comments/form' %>
 </div>

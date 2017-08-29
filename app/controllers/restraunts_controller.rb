@@ -40,6 +40,7 @@ class RestrauntsController < ApplicationController
   end
 
   private
+
   def restraunt_params
     params.require(:restraunt).permit(
     :title,

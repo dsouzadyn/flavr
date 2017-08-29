@@ -1,35 +1,39 @@
 <%= render 'layouts/navalt' %>
-<h1>Add a new restraunt</h1>
-<%= form_for :restraunt, url: restraunts_path do |f| %>
-<p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</p>
-<p>
-  <%= f.label :cuisine %>
-  <%= f.select :cuisine_id, options_for_select(Cuisine.all.map{|c|[c.cname, c.id]}) %>
-</p>
-<p>
-  <%= f.label :phone %>
-  <%= f.telephone_field :phone %>
-</p>
-<p>
-  <%= f.label :address %>
-  <%= f.text_area :address %>
-</p>
-<p>
-  <%= f.label :cost %>
-  <%= f.number_field :cost %>
-</p>
-<p>
-  <%= f.label :heads %>
-  <%= f.number_field :heads %>
-</p>
-<p>
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
+<% if is_curator? %>
+  <h1>Add a new restraunt</h1>
+  <%= form_for :restraunt, url: restraunts_path do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title, :required => true %>
+  </p>
+  <p>
+    <%= f.label :cuisine %>
+    <%= f.select :cuisine_id, options_for_select(Cuisine.all.map{|c|[c.cname, c.id]}) %>
+  </p>
+  <p>
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone, :required => true%>
+  </p>
+  <p>
+    <%= f.label :address %>
+    <%= f.text_area :address, :required => true %>
+  </p>
+  <p>
+    <%= f.label :cost %>
+    <%= f.number_field :cost, :required => true %>
+  </p>
+  <p>
+    <%= f.label :heads %>
+    <%= f.number_field :heads, :required => true %>
+  </p>
+  <p>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url, :required => true %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>
+<% else %>
+  Not a curator
 <% end %>

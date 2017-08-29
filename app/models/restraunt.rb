@@ -1,5 +1,6 @@
 class Restraunt < ApplicationRecord
   belongs_to :cuisine
+  has_many :comments, :dependent => :destroy
 
   def self.search(q, qa)
     if q
