@@ -2,11 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //= depend_on_asset "back.jpg"
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .container {
+    background: url('back_w_473.jpg') no-repeat center center fixed;
+  }
+
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .container {
+    background: url('back_w_1138.jpg') no-repeat center center fixed;
+  }
+}
+@media only screen  and (min-width : 1224px) {
+  .container {
+    background: url('back_w_1396.jpg') no-repeat center center fixed;
+  }
+}
+@media only screen  and (min-width : 1824px) {
+  .container {
+    background: url('back_w_1400.jpg') no-repeat center center fixed;
+  }
+}
 .container {
   display: flex;
   flex-flow: column;
   height: 100%;
-  background: url('back.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
