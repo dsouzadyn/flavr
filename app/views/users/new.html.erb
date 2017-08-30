@@ -1,3 +1,12 @@
+<% if @user.errors.any? %>
+<div id="error">
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <h1 style="text-align:center;">Sign Up</h1>
 <%= form_for @user do |f| %>
   <p>
@@ -10,7 +19,11 @@
   </p>
   <p>
     <%= f.label :email %>
-    <%= f.text_field :email, :required => true %>
+    <%= f.email_field :email, :required => true %>
+  </p>
+  <p>
+    <%= f.label :email_confirmation %>
+    <%= f.email_field :email_confirmation, :required => true %>
   </p>
   <p>
     <%= f.label :password %>

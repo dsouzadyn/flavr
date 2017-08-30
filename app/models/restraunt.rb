@@ -1,4 +1,9 @@
 class Restraunt < ApplicationRecord
+
+  validates :title, presence: true
+  validates :address, presence: true
+  validates :image_url, presence: true
+
   belongs_to :cuisine
   has_many :comments, :dependent => :destroy
 
