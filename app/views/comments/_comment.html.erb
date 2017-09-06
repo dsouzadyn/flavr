@@ -1,16 +1,10 @@
-<div class="ui basic segment">
-  <div class="ui comments">
-    <h3 class="ui dividing header">Comments</h3>
-    <div class="comment">
-      <div class="content">
-        <a class="author">
-          <%= comment.user.first_name + ' ' + comment.user.last_name %>
-        </a>
-        <div class="text"><%= comment.body %></div>
-      </div>
-    </div>
+<div class="comment">
+  <div class="content">
+    <a class="author">
+      <%= comment.user.first_name + ' ' + comment.user.last_name %>
+    </a>
+    <div class="text"><%= comment.body %></div>
   </div>
-
 </div>
   <!-- <p><%= link_to "Delete Comment", [comment.restraunt, comment],
           :confirm => 'Are you sure?',

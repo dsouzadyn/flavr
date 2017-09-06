@@ -1,5 +1,11 @@
 <div class="comments">
-  <%= render @restraunt.comments %>
+
+  <div class="ui basic segment">
+    <div class="ui comments">
+      <h3 class="ui dividing header">Comments</h3>
+      <%= render @restraunt.comments %>
+    </div>
+  </div>
   <% if logged_in? %>
   <div class="ui basic segment">
     <%= form_for([@restraunt, @restraunt.comments.build], :html => {:class=>'ui reply form'}) do |f| %>
