@@ -1,10 +1,12 @@
-<nav>
-  <li class="logo-small"><a href="/">flavr.</a></li>
-  <li>
+<div class="ui secondary pointing menu">
+  <a href="/" class="active item">
+    flavr.
+  </a>
+  <div class="right menu">
     <% if logged_in? %>
-      <%= link_to "Sign Out", logout_path %>
+      <%= link_to "Sign Out", logout_path, :class => "ui item" %>
     <% else %>
-      <%= link_to "Login", login_path %>
+      <%= link_to "Login", login_path, :class => "ui item" %>
     <% end %>
-  </li>
-</nav>
+  </div>
+</div>

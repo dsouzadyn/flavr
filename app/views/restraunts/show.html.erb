@@ -1,31 +1,42 @@
 <%= render 'layouts/navbar' %>
-<div class="ind-rest-container">
-  <%= image_tag @restraunt.image_url %>
 
-    <h1><%= @restraunt.title %></h1>
-    <hr/>
-  <section class="ind-rest-info">
-    <div class="col">
-      <p>
-        <h2>Phone</h2>
-        <%= @restraunt.phone %>
-      </p>
-      <p>
-        <h2>Cuisine</h2>
-        <%= @restraunt.cuisine.cname %>
-      </p>
+<div class="ui centered stackable grid">
+  <div class="eight wide column">
+    <div class="ui fluid card">
+        <div class="image">
+          <div class="ui blue ribbon label">
+        <i class="spoon icon"></i> <%= @restraunt.cuisine.cname %>
+      </div>
+          <%= image_tag @restraunt.image_url %>
+        </div>
+        <div class="content">
+          <a class="header"><%= @restraunt.title %></a>
+          <div class="meta">
+            <div class="ui tag labels">
+              <span class="data"><a class="ui label">&#8377;<%= @restraunt.cost %> for <%= @restraunt.heads%> people</a></span>
+            </div>
+          </div>
+          <div class="ui list">
+            <a class="item">
+              <i class="phone icon"></i>
+              <div class="content">
+                <div class="header">Phone</div>
+                <div class="description"><%= @restraunt.phone %></div>
+              </div>
+            </a>
+            <a class="item">
+              <i class="marker icon"></i>
+              <div class="content">
+                <div class="header">Address</div>
+                <div class="description"><%= @restraunt.address %></div>
+              </div>
+            </a>
+          </div>
+        </div>
 
+
+        
+      <%= render 'comments/form' %>
     </div>
-    <div class="col">
-      <p>
-        <h2>Address</h2>
-        <%= @restraunt.address %>
-      </p>
-      <p>
-        <h2>Cost</h2>
-        &#8377;<%= @restraunt.cost %> for <%= @restraunt.heads %> people.
-      </p>
-    </div>
-  </section>
-  <%= render 'comments/form' %>
+  </div>
 </div>

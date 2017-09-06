@@ -1,8 +1,37 @@
 <%= render 'layouts/navbar' %>
+<div class="ui stackable centered grid"
+
 <% @restraunts.each do |restraunt| %>
-  <div class="restraunt">
+  <div class="one column row">
+
+    <div class="eight wide column">
+
+        <div class="ui fluid raised card">
+          <div class="image">
+            <%= image_tag restraunt.image_url %>
+          </div>
+          <div class="content">
+            <div class="header"><%= restraunt.title %></div>
+            <%= restraunt.cuisine.cname %>
+          </div>
+          <div class="extra content">
+            <div class="ui two buttons">
+              <%= link_to 'View Restraunt', restraunt_path(restraunt), :class=>"ui basic black button" %>
+              <a href="tel:<%= restraunt.phone %>" class="ui basic green button">Phone Up</a>
+            </div>
+          </div>
+          <div class="extra content">
+              &#8377;<%= restraunt.cost %> for <%= restraunt.heads %> people.
+          </div>
+        </div>
+
+
+    </div>
+
+</div>
+  <!-- <div class="restraunt">
     <div class="rest-img">
-      <%= image_tag restraunt.image_url %>
+
       <h3 class="rest-name"> <%= restraunt.title %> </h3>
       <h4 class="rest-type"> <%= restraunt.cuisine.cname %></h4>
       <h4 class="rest-rating"> 0.0 </h4>
@@ -16,5 +45,5 @@
       <%= link_to 'View Restraunt', restraunt_path(restraunt), :class=>"button" %>
       <a href="tel:<%= restraunt.phone %>" class="button btn-white">Phone Up</a>
     </div>
-  </div>
+  </div> -->
 <% end %>

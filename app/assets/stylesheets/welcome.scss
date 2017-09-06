@@ -2,97 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //= depend_on_asset "back.jpg"
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  .container {
-    background: url('back_w_473.jpg') no-repeat center center fixed;
-  }
-
-}
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .container {
-    background: url('back_w_1138.jpg') no-repeat center center fixed;
-  }
-}
-@media only screen  and (min-width : 1224px) {
-  .container {
-    background: url('back_w_1396.jpg') no-repeat center center fixed;
-  }
-}
-@media only screen  and (min-width : 1824px) {
-  .container {
-    background: url('back_w_1400.jpg') no-repeat center center fixed;
-  }
-}
-.container {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-  background-size: cover;
-}
-
-.black-drop {
-  width: 80%;
-  height: 480px;
-  margin: auto;
-  background: #fff;
-}
-
-.logo {
-  text-align: center;
-  margin: 10% auto 0;
-  font-size: 72pt;
-}
-
-.tagline {
-  margin: 0;
-  text-align: center;
-}
-
-.search-form {
-  text-align: center;
-  margin-top: 16px;
-}
-
-input {
-  font-family: inherit;
-  font-size: 18px;
-  letter-spacing: 2px;
-  &:focus {
-    outline: none;
-    background-color: lighten(#000, 90);
-  }
-}
-input[type="submit"] {
-  border: none;
-  height: 48px;
-  text-transform: uppercase;
-  background: #000;
-  color: #fff;
-  padding: 0 15px;
-}
-select {
-  &:focus {
-    outline: none;
-    background-color: lighten(#000, 90);
-  }
-}
-
-.search-bar {
-  padding: 0 15px;
-  border: none;
-  height: 48px;
-  border-bottom: 4px solid #000;
-  width: 475px;
-}
-.search-loc {
-  padding: 0 15px;
-  font-size: 18px;
-  border: none;
-  height: 52px;
-  border-bottom: 4px solid #000;
-  background: none;
-  font-family: inherit;
-  option {
-    height: inherit;
-  }
-}
+// @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+//   .container {
+//     background: url('back_w_473.jpg') no-repeat center center fixed;
+//   }
+//
+// }
+// @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+//   .container {
+//     background: url('back_w_1138.jpg') no-repeat center center fixed;
+//   }
+// }
+// @media only screen  and (min-width : 1224px) {
+//   .container {
+//     background: url('back_w_1396.jpg') no-repeat center center fixed;
+//   }
+// }
+// @media only screen  and (min-width : 1824px) {
+//   .container {
+//     background: url('back_w_1400.jpg') no-repeat center center fixed;
+//   }
+// }

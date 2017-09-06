@@ -1,19 +1,49 @@
-<% if notice %>
-<div id="notice">
-  <%= notice %>
-</div>
-<% end %>
+
 <%= render 'layouts/navalt' %>
-<div class="container">
-  <div class="black-drop">
-    <h1 class="logo">flavr.</h1>
-    <h3 class="tagline">Curated fine dining restraunts.</h3>
-    <div>
-      <%= form_tag(restraunts_path, method: :get, :class => "search-form") do %>
-        <%= select_tag(:qa, options_for_select(Area.select(:city).map(&:city).uniq + Area.all.map{|area| [area.area+', '+area.city, area.area]}), :class => "search-loc") %>
-        <%= text_field_tag :q, params[:q], placeholder: "Search for fine dining anywhere...",:class => "search-bar" %>
-        <%= submit_tag 'Search', name: nil %>
+
+  <div class="ui stackable centered grid">
+    <div class="one column row">
+      <% if notice %>
+      <div class="ui warning message">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= notice %>
+        </div>
+      </div>
+      <% end %>
+      <div class="column" style="margin-top:64px;">
+        <h2 class="ui center aligned icon header">
+          <i class="circular food icon"></i>
+          flavr.
+          <div class="sub header">Curated fine dining restraunts.</div>
+        </h2>
+
+      </div>
+
+    </div>
+    <div class="eight wide column">
+      <%= form_tag(restraunts_path, method: :get, :class => "ui form") do %>
+        <div class="two fields">
+          <div class="field">
+            <%= select_tag(:qa, options_for_select(Area.select(:city).map(&:city).uniq + Area.all.map{|area| [area.area+', '+area.city, area.area]}), :class => "search-loc") %>
+          </div>
+          <div class="field">
+            <%= text_field_tag :q, params[:q], placeholder: "Search for fine dining anywhere..." %>
+          </div>
+        </div>
+        <%= submit_tag 'Search', name: nil, :class=> "fluid ui black button" %>
       <% end %>
     </div>
+
+
   </div>
-</div>
+  <script>
+  $('.message .close')
+    .on('click', function() {
+      $(this)
+        .closest('.message')
+        .transition('fade')
+      ;
+    })
+  ;
+  </script>

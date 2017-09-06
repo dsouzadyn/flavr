@@ -1,33 +1,56 @@
+<%= render 'layouts/nav_only_brand' %>
 <% if @user.errors.any? %>
+  <div class="ui basic segment">
+    <div class="ui warning message">
+      <i class="close icon"></i>
+      <div class="header">
+        <% @user.errors.full_messages.each do |msg| %>
+          <li> <%= msg %> </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <div id="error">
   <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li> <%= msg %> </li>
-    <% end %>
+
   </ul>
 </div>
 <% end %>
-<h1 style="text-align:center;">Sign Up</h1>
-<%= form_for @user do |f| %>
-  <p>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, :required => true %>
-  </p>
-  <p>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, :required => true %>
-  </p>
-  <p>
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true %>
-  </p>
-  <p>
-    <%= f.label :email_confirmation %>
-    <%= f.email_field :email_confirmation, :required => true %>
-  </p>
-  <p>
-    <%= f.label :password %>
-    <%= f.password_field :password, :required => true %>
-  </p>
-  <p><%= f.submit %></p>
-<% end %>
+<h1 class="ui center aligned header">Sign Up</h1>
+<div class="ui centered stackable grid">
+  <div class="four wide column">
+    <%= form_for @user, :html => {:class=>"ui form"} do |f| %>
+      <div class="field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, :required => true %>
+      </div>
+      <div class="field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, :required => true %>
+      </div>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, :required => true %>
+      </div>
+      <div class="field">
+        <%= f.label :email_confirmation %>
+        <%= f.email_field :email_confirmation, :required => true %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, :required => true %>
+      </div>
+      <%= f.submit :class=>"ui fluid button" %>
+    <% end %>
+  </div>
+</div>
+<script>
+$('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+;
+</script>

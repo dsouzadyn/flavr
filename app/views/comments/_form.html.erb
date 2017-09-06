@@ -1,16 +1,17 @@
 <div class="comments">
   <%= render @restraunt.comments %>
   <% if logged_in? %>
-    <%= form_for([@restraunt, @restraunt.comments.build]) do |f| %>
-      <p>
-        <%= f.label :body %>
+  <div class="ui basic segment">
+    <%= form_for([@restraunt, @restraunt.comments.build], :html => {:class=>'ui reply form'}) do |f| %>
+      <div class="field">
         <%= f.text_area :body, :required => true%>
-      </p>
-      <p>
-        <%= f.submit %>
-      </p>
+      </div>
+      <%= f.submit :class => 'ui blue submit button' %>
     <% end %>
+  </div>
   <% else %>
-    Sign in to comment
+    <div class="ui basic segment">
+      <a href="/login" class="positive ui button">Sign In To Comment</a>
+    </div>
   <% end %>
 </div>
